@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Love+Ya+Like+A+Sister&display=swap");
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    height: 60px;
+    margin-bottom: 12px;
+    top: 0;
+    position: sticky;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    box-shadow: 0px 6px 9px -5px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid white;
+    color: #000000;
+}
+header.dark{
+    box-shadow: 0px 6px 9px -5px rgba(214, 214, 214, 0.692);
+    color: white;
+}
+header.dark .MuiOutlinedInput-root:not(.Mui-focused) .MuiOutlinedInput-notchedOutline{
+    border-color: white;
+}
+header.dark label,
+header.dark input,
+header.dark .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input, 
+header.dark .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
+    color: white;
+}
+
+.logo img{
+    margin-top: 4.5px;
+    position: relative;
+    right: 9px;
+}
+.logo span {
+    height: 0;
+    font-size: 45px;
+    font-weight: 900;
+    font-family: 'Kalam', cursive;
+    font-family: "Love Ya Like A Sister", cursive;
+}
+.icon{
+    padding: 12px;
+    border: 1px solid;
+    cursor: pointer;
+    margin-left: 15px;
+}
