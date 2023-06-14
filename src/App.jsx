@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { BrowserRouter} from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 import { AnimateRoute } from '../public/AnimateRoute/AnimteRoute'
 import { InputData } from '../public/ContextandApi/InputData'
 import { Header } from '../public/header/MainHeader'
@@ -10,10 +10,10 @@ function App() {
   return (
     <>
     <InputData.Provider value={{search,setSearch,continents,setContinents,mode,setMode}}>
-      <BrowserRouter>
+      <HashRouter basename="/app">
         <Header/>
         <AnimateRoute/>
-      </BrowserRouter>
+      </HashRouter>
       </InputData.Provider>
     </>
   )
