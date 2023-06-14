@@ -1,0 +1,37 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    outline: none;
+    border: 1px solid;
+    margin: 21px 6px;
+    padding: 9px 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pagination.light button {
+    background-color: white;
+    color: black;
+}
+.pagination.dark button {
+    background-color: black;
+    color: white;
+}
+.pagination.light button.active {
+    background-color: black;
+    color: white;
+}
+.pagination.dark button.active {
+    background-color: white;
+    color: black;
+}
+@media screen and (max-width: 450px){
+    button{
+        margin: 21px 3px;
+        padding:7.5px 9px;
+    }
+}

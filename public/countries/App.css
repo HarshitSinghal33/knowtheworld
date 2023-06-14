@@ -1,0 +1,108 @@
+.countriesBox {
+    display: flex;
+    width: min(100% - 3rem);
+    flex-wrap: wrap;
+    margin-inline: auto;
+    justify-content: space-evenly;
+}
+
+.Cards {
+    margin: 9px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 9px;
+}
+
+.Cards.light {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: black;
+}
+
+.Cards.dark {
+    background-color: black;
+    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    color: white;
+}
+
+.Cards img {
+    display: block;
+    width: 270px;
+    height: 150px;
+    border-radius: 6px;
+}
+@media screen and (max-width: 960px) and (min-width: 450px){
+    .Cards img {
+        width: 210px;
+        height: 120px;
+    }
+    .countriesBox {
+        width: 100%;
+    }
+}
+
+.name {
+    text-align: center;
+    margin-top: 9px;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.9px;
+}
+.countryDetail {
+    margin: auto;
+    margin-top: 30px;
+    padding: 12px;
+    width: 360px;
+    border: 2px solid white;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 24px;
+    display: flex;
+    border-radius: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+@media screen and (max-width: 450px){
+    .Cards img {
+        width: 135px;
+        height: 75px;
+    }
+    .countriesBox {
+        width: 100%;
+    }
+    .countryDetail{
+        width: 90%;
+        font-size: 18px;
+    }
+    .countryDetail img {
+        width: 100%;
+    }
+}
+.countryDetail.light {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.countryDetail.dark {
+    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    border-color: black;
+    color: white;
+}
+
+.countryDetail .image {
+    text-align: center;
+}
+
+.countryDetail.light img {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+}
+
+.countryDetail.dark img {
+    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    border-radius: 9px;
+}
+
+.countryDetail .title {
+    font-weight: 900;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
