@@ -24,7 +24,6 @@ export const Header = () => {
                 : <>
                     <Link to="/knowtheworld/">
                         <ArrowBackIcon className="icon" sx={{ fontSize: "30px" }} />
-                        {console.log(location.pathname)}
                     </Link>
                 </>
 
