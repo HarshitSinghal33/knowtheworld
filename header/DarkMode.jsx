@@ -11,13 +11,11 @@ export const DarkMode = () => {
         }else if(mode === "light"){
             document.body.style.backgroundColor = "black"
         }
-        console.log(document.body.backgroundColor);
     }
     return(
         <div className="ModeBtn" onClick={()=>{
             setMode(mode === "light" ? "dark" : "light")
             changeBody()
-            console.log(mode);
         }}>{mode === "light" ? <BrightnessHighIcon className="icon" sx={{ fontSize: "30px" }} /> : <Brightness4Icon className="icon" sx={{ fontSize: "30px" }}/>}</div>
     )
 }

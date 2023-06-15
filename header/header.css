@@ -22,11 +22,10 @@ header.dark .MuiOutlinedInput-root:not(.Mui-focused) .MuiOutlinedInput-notchedOu
 }
 header.dark label,
 header.dark input,
-header.dark .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input, 
-header.dark .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
+header.dark svg,
+header.dark #demo-simple-select{
     color: white;
 }
-
 .logo img{
     margin-top: 4.5px;
     position: relative;
