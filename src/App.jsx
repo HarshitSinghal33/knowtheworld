@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { BrowserRouter} from "react-router-dom"
+import { BrowserRouter  } from "react-router-dom"
 import { AnimateRoute } from '../public/AnimateRoute/AnimteRoute'
 import { InputData } from '../public/ContextandApi/InputData'
 import { Header } from '../public/header/MainHeader'
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <AnimateRoute/>
-      </BrowserRouter>
+      </BrowserRouter >
       </InputData.Provider>
     </>
   )
