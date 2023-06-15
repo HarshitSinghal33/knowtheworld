@@ -11,19 +11,23 @@ export const Header = () => {
     return (
         <header className={mode}>
 
-            {location.pathname === "/"
+            {location.pathname === "/knowtheworld/"
                 ? <>
                     <div className="logo">
                         <div style={{ display: "flex" }}>
                             <img src="./img/world.png" alt="" width={45} />
-                            {window.innerWidth >= 750 ? <span>KnowTheWorld</span> : null  }
+                            {window.innerWidth >= 750 ? <span>KnowTheWorld</span> : null}
                         </div>
                     </div>
                     <InputField />
                 </>
-                : <Link to="/">
-                    <ArrowBackIcon className="icon" sx={{ fontSize: "30px" }}/>
-                </Link>
+                : <>
+                    <Link to="/knowtheworld/">
+                        <ArrowBackIcon className="icon" sx={{ fontSize: "30px" }} />
+                        {console.log(location.pathname)}
+                    </Link>
+                </>
+
             }
             <DarkMode />
         </header>

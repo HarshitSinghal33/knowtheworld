@@ -9,7 +9,7 @@ export const AnimateRoute = () => {
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-                <Route path='/' element={<CountriesBox />}></Route>
+                <Route path='/knowtheworld/' element={<CountriesBox />}></Route>
                 <Route path='/country/:countrycode' element={<CountryDetail />}></Route>
             </Routes>
         </AnimatePresence>
