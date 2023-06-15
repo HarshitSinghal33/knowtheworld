@@ -3,7 +3,8 @@ import { useEffect, useState, useContext } from 'react';
 import { CountriesCard } from './CountriesCard';
 import { InputData } from '../ContextandApi/InputData'
 import { Pagination } from "../pagination/pagination.jsx";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+import { Loader } from "./loader";
 export const CountriesBox = () => {
     const location = useLocation()
     const { continents } = useContext(InputData)
@@ -12,10 +13,13 @@ export const CountriesBox = () => {
     const [filterData, setfilterData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [postPerPage, setpostPerPage] = useState(15)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         getData().then(res => {
             setData(res.data)
+            setLoading(false)
         })
+
     }, [])
 
     useEffect(() => {
@@ -41,13 +45,16 @@ export const CountriesBox = () => {
     let currentPostData = filterData.slice(firstCard, lastCard)
     return (
         <>
-            <CountriesCard data={currentPostData} />
-            <Pagination
-                totalPost={filterData.length}
-                postPerPage={postPerPage}
-                setCurrentPage={setCurrentPage}
-                currentPage={currentPage}
-            />
+            {loading ? <Loader/>
+                : <>
+                    <CountriesCard data={currentPostData} />
+                    <Pagination
+                        totalPost={filterData.length}
+                        postPerPage={postPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                    />
+                </>}
         </>
     )
 }

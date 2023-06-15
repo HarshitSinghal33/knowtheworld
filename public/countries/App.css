@@ -21,7 +21,7 @@
 
 .Cards.dark {
     background-color: black;
-    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
     color: white;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .countryDetail.dark {
-    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
     border-color: black;
     color: white;
 }
@@ -98,7 +98,7 @@
 }
 
 .countryDetail.dark img {
-    box-shadow: 0px 1px 12px 4px rgba(214, 214, 214, 0.252);
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
     border-radius: 9px;
 }
 
@@ -106,3 +106,49 @@
     font-weight: 900;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
+/* loader animation */
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    color:white;
+    overflow: hidden;
+    height: 50vh;
+  }
+  .spinner{
+    position:absolute;
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    animation: spinner 2s linear infinite;
+  }
+  .spinner:before{
+    position:absolute;
+    content: "";
+    left: 0;
+    top:0;
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255,255,255,.3)
+  }
+  .loader span{
+  color: #737373;
+   font-size: 20px;
+    text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 200px;
+  }
+  @keyframes spinner {
+      0%{
+          transform: rotate(0deg);
+          box-shadow: 1px 5px 2px #737373;
+      }
+    100%{
+          transform: rotate(360deg);
+          box-shadow: 1px 5px 2px #737373;
+     }
+  }
