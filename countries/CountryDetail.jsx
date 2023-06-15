@@ -4,14 +4,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { InputData } from "../ContextandApi/InputData"
 import { useContext } from 'react'
+import { Loader } from "./loader";
 import "./App.css"
 export const CountryDetail = () => {
     const [countryData, setCountryData] = useState();
     const { countrycode } = useParams()
     const { mode } = useContext(InputData)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         getCountryDetail(countrycode).then(res => {
             setCountryData(res.data);
+            setLoading(false)
         })
     }, [countrycode])
 
@@ -20,8 +23,10 @@ export const CountryDetail = () => {
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0 }}
             className="countryDetailMain"
-        >
-            {countryData?.map((country, i) => {
+        >   
+            {loading ? <Loader/>
+            :<>{countryData?.map((country, i) => {
+                
                 return (
 
                     <div className={`countryDetail ${mode}`} key={i}>
@@ -61,7 +66,7 @@ export const CountryDetail = () => {
                         </div>
                     </div>
                 )
-            })}
+            })}</>}
         </motion.main>
     )
 }
