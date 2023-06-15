@@ -10,6 +10,7 @@ export const InputField = () => {
     const { setContinents } = useContext(InputData);
     const { setSearch } = useContext(InputData)
     const { search } = useContext(InputData)
+    const { continents } = useContext(InputData)
     return (
         <div className='inputs' style={{ display: "flex" }}>
             <TextField id="outlined-basic" label="Search" variant="outlined" onChange={(e) => setSearch(e.target.value)} value={search} className='input'/>
@@ -19,6 +20,7 @@ export const InputField = () => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     defaultValue="All"
+                    value={continents}
                     label="Continents"
                     onChange={(e) => setContinents(e.target.value)}
                 >
