@@ -1,19 +1,17 @@
 import { getData } from "../ContextandApi/api"
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { CountriesCard } from './CountriesCard';
-import { InputData } from '../ContextandApi/InputData'
 import { Pagination } from "../pagination/pagination.jsx";
-import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Loader } from "./loader";
 export const CountriesBox = () => {
-    const location = useLocation()
-    const { continents } = useContext(InputData)
-    const { search } = useContext(InputData)
+    const {searched,continented} = useSelector((state) => state.searchData);
     const [data, setData] = useState([])
     const [filterData, setfilterData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [postPerPage, setpostPerPage] = useState(15)
+    const postPerPage = 15
     const [loading, setLoading] = useState(true)
+
     useEffect(() => {
         getData().then(res => {
             setData(res.data)
@@ -24,21 +22,30 @@ export const CountriesBox = () => {
 
     useEffect(() => {
         let newData = [];
-        if (continents === 'All' && search === '') {
+        data.sort((a,b)=> {
+            if(a.name.common < b.name.common) return -1;
+            if(a.name.common > b.name.common) return 1;
+            return 0
+        })
+        let trimedSearch = searched.replace(/\s+/g, ' ').trim().toLowerCase()
+        if (continented === 'All' && trimedSearch === '') {
             setfilterData(data);
         } else {
             newData = data.filter(country => {
-                if (continents !== 'All' && !country.continents.includes(continents)) {
+                
+                if (continented !== 'All' && !country.continents.includes(continented)) {
                     return false;
                 }
-                if (search !== '' && !country.name.common.toLowerCase().includes(search.toLowerCase())) {
+                if (trimedSearch !== '' && !country.name.common.toLowerCase().includes(trimedSearch.toLowerCase())) {
+                    
                     return false;
                 }
                 return true;
+                
             });
             setfilterData(newData);
         }
-    }, [continents, search, data])
+    }, [continented, searched, data])
 
     let lastCard = currentPage * 15;
     let firstCard = lastCard - 15;

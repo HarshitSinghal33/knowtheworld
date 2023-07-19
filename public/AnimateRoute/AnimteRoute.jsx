@@ -2,8 +2,6 @@ import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import { CountriesBox } from '../countries/CountriesBox'
 import { CountryDetail } from '../countries/CountryDetail';
-// import "../App.css"
-// import "../countries/App.css"
 export const AnimateRoute = () => {
     const location = useLocation();
     return (
