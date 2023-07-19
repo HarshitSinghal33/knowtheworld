@@ -27,7 +27,7 @@ export const Header = () => {
                 ? <>
                     <div className="logo">
                         <div style={{ display: "flex" }}>
-                            <img src="../img/world.png" alt="" width={45} />
+                            <img src="./img/world.png" alt="" width={45} />
                             {mediaQuery ? <span>KnowTheWorld</span> : null}
                         </div>
                     </div>
