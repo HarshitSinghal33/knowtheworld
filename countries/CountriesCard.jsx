@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-// import { InputData } from "../Context/InputData"
 import "./App.css"
-import { InputData } from "../ContextandApi/InputData"
-import { useContext } from 'react'
+import { useSelector } from "react-redux";
 export const CountriesCard = ({ data }) => {
-    const { mode } = useContext(InputData)
+    const {theme} = useSelector((state) => state.searchData)
     return (
         <motion.main
         transition={{ duration: 0.3 }}
@@ -14,13 +12,12 @@ export const CountriesCard = ({ data }) => {
             {data.map((country, i) => {
                 return (
                     <Link to={`/country/${country.cca2}`} key={i}>
-                        <div className={`Cards ${mode}`}>
+                        <div className={`Cards ${theme}`}>
                             <img src={country.flags.png} alt="" />
                             {window.innerWidth <=500 
                             ?  <div className="name">{country.name.common.length <= 9 ? `${country.name.common}` : `${country.name.common.slice(0, 9)}...`}</div>
                             :<div className="name">{country.name.common.length <= 18 ? `${country.name.common}` : `${country.name.common.slice(0, 18)}...`}</div>
                             }
-                            
                         </div>
                     </Link>
                 )

@@ -2,14 +2,13 @@ import { useParams } from "react-router-dom"
 import { getCountryDetail } from "../ContextandApi/api";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
-import { InputData } from "../ContextandApi/InputData"
-import { useContext } from 'react'
 import { Loader } from "./loader";
+import { useSelector } from "react-redux"
 import "./App.css"
 export const CountryDetail = () => {
+    const {theme} = useSelector((state) => state.searchData)
     const [countryData, setCountryData] = useState();
     const { countrycode } = useParams()
-    const { mode } = useContext(InputData)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         getCountryDetail(countrycode).then(res => {
@@ -29,7 +28,7 @@ export const CountryDetail = () => {
                 
                 return (
 
-                    <div className={`countryDetail ${mode}`} key={i}>
+                    <div className={`countryDetail ${theme}`} key={i}>
                         <div className="countryData" >
                             <div className="image">
                                 <img src={country.flags.png} alt="" />
